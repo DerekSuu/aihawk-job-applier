@@ -57,6 +57,9 @@ profile.yaml + greeting.txt          ← 个人数据，gitignore，不入库
      → 填定制招呼语 → 发送 → 验证钩子 → 随机间隔 → 下一家
 ```
 
+收工时执行一次 `clean.py --go`：删掉截图、状态文件、锁和日志
+（约 4MB/次），登录态、简历、去重记录全部保留。
+
 ## 硬性过滤规则（v2，可按需调整）
 
 以下岗位**直接跳过、不发招呼**：
@@ -114,6 +117,7 @@ curl -L --retry 8 -o stealth-firefox.zip ^
 
 ```
 boss_batch.py            BOSS 批量定制打招呼（过滤+验证钩子+随机间隔）
+clean.py                 进程结束后的产物清理（截图/状态/日志/锁，--go 执行）
 src/jobdriver/
   daemon.py              长驻浏览器 daemon（--stealth-binary / --cdp）
   cli.py                 单步命令客户端
