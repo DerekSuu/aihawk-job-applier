@@ -1,0 +1,40 @@
+# 登录态 profile：含 cookies 与设备指纹，绝不入库
+profiles/
+!profiles/.gitkeep
+
+# 简历与解析产物：含身份证、电话、住址
+resume/
+profile.yaml
+
+# 已投递去重集合
+sent*.db
+sent*.jsonl
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# 投递历史与运行产物（含个人求职轨迹）
+greeted.json
+boss_batch_log.txt
+boss_*.png
+*.json
+!package.json
+profiles/*.json
+fields*.json
+recon*.json
+proc*.txt
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+.downloads/
+
+# 个人求职策略与截图（含个人信息）
+targets.yaml
+byte_form.png
+boss_pay_page.html
+*.png
+
+# AI 按用户简历生成的招呼语（含个人经历，不入库）
+greeting.txt

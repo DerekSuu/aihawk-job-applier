@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><title>冒烟测试 - 模拟招聘表单</title></head>
+<body style="font-family:sans-serif;max-width:760px;margin:40px auto">
+<h1>校园招聘申请（测试页）</h1>
+<p>这是一张本地虚构表单，仅用于验证 daemon 的抽取与填写链路。</p>
+
+<form onsubmit="return false">
+  <p><label for="name">姓名</label><input id="name" name="name" placeholder="请输入姓名" required></p>
+  <p><label for="phone">手机号</label><input id="phone" name="phone" required></p>
+  <p><label for="email">电子邮箱</label><input id="email" name="email" type="email"></p>
+  <p><label for="school">毕业院校</label><input id="school" name="school"></p>
+
+  <p><label for="degree">最高学历</label>
+    <select id="degree" name="degree" required>
+      <option value="">请选择</option><option>本科</option><option>硕士</option><option>博士</option>
+    </select></p>
+
+  <p><label for="city">意向城市</label>
+    <select id="city" name="city">
+      <option value="">请选择</option>
+      <option>北京</option><option>上海</option><option>广州</option><option>深圳</option>
+      <option>杭州</option><option>成都</option><option>武汉</option><option>西安</option>
+      <option>南京</option><option>苏州</option><option>厦门</option><option>长沙</option>
+      <option>青岛</option><option>天津</option>
+    </select></p>
+
+  <p><label for="salary">期望月薪</label><input id="salary" name="salary"></p>
+
+  <p><label for="intro">自我介绍</label><textarea id="intro" name="intro" rows="4" placeholder="100 字以内"></textarea></p>
+
+  <p><label for="resume">上传简历</label><input id="resume" name="resume" type="file"></p>
+
+  <p><input id="agree" type="checkbox" name="agree" required> <label for="agree">我确认所填信息真实</label></p>
+
+  <p><button type="button" id="savebtn">保存草稿</button>
+     <button type="submit" id="submitbtn">提交申请</button></p>
+</form>
+
+<nav style="margin-top:30px">
+  <a href="#a">首页</a> <a href="#b">职位列表</a> <a href="#c">常见问题</a>
+</nav>
+</body>
+</html>
