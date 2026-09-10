@@ -1,0 +1,44 @@
+# filter_rules.yaml —— 岗位筛选规则（个人化，不入库）
+#
+# 用法：复制本文件为 filter_rules.yaml 后填写；或让 AI 按
+#       prompts/grill-job-filters.md 对你做一次「岗位要求 grilling」自动生成。
+#
+# 约定：
+#   · 每个列表留空 = 该项不启用（不做任何限制）。
+#   · 列表条目按**正则**处理，可用 `电商(?!支付|收款)` 这类断言。
+#   · 匹配范围：title_* 只看标题；employer_* 只看卡片(公司名+BOSS标签)；
+#     jd_keywords 看卡片；industries(黑名单) 看卡片；白名单 industries 看 卡片+JD。
+
+reject:
+  # 标题含任一 → 直接跳过
+  title_keywords: []
+  # 公司名/卡片含任一 → 跳过
+  employer_keywords: []
+  # 卡片含任一 → 跳过
+  jd_keywords: []
+  # 黑名单行业（查卡片），如 [建筑, 物业, 餐饮]
+  industries: []
+  # 若 JD 只列这些专业、且 allowed_majors 未命中 → 跳过，如 [计算机, 数学, 统计]
+  required_majors: []
+  # 技术岗标题关键词，留空 = 不限制，如 [工程师, 算法, 开发, 架构]
+  dev_keywords: []
+  # 开关
+  phone_sales: false            # 拒电话销售/客服类
+  part_time: false              # 拒兼职/实习/日结
+  scam_title: true              # 拒标题挂薪资（骗子岗），建议保持 true
+  min_years_experience: 0       # 要求 ≥ 该年数经验即拒；0 = 不启用
+  experience_required: false    # JD 明写「需要经验」即拒（写"优先"的放行）
+
+require:
+  # 行业白名单（查 卡片+JD）；留空 = 不限。如 [金融, 科技, 互联网]
+  industries: []
+  # 职能白名单（查标题）；留空 = 不限。如 [商业分析, 数据分析, 运营, 销售]
+  functions: []
+  # 允许专业（与 required_majors 配合）；命中则放行，如 [商科, 金融, 经济]
+  allowed_majors: []
+  # 仅海外/跨境岗
+  overseas: false
+
+salary:
+  floor: 0                      # 月薪下限（元/月）；0 = 不限。如 10000
+  unknown: allow                # 薪资不明时：allow（放）| reject（拒）

@@ -6,6 +6,9 @@ profiles/
 resume/
 profile.yaml
 
+# 个人筛选规则（由 prompts/grill-job-filters.md 生成，含个人求职偏好）
+filter_rules.yaml
+
 # 已投递去重集合
 sent*.db
 sent*.jsonl
@@ -18,6 +21,7 @@ __pycache__/
 # 投递历史与运行产物（含个人求职轨迹）
 greeted.json
 boss_batch_log.txt
+*.log
 boss_*.png
 *.json
 !package.json
