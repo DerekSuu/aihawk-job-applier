@@ -1,0 +1,14 @@
+# 直接依赖（2026-09 实测环境：Python 3.13.14 / Windows）
+#
+# 安装：
+#   .venv/Scripts/python.exe -m pip install -r requirements.txt
+#   .venv/Scripts/python.exe -m playwright install firefox   # 非 stealth 路径需要
+
+playwright==1.62.0            # daemon 用标准 playwright 驱动 stealth 引擎
+PyYAML==6.0.3                 # boss_batch.py 读 filter_rules.yaml
+
+# 安装/校验 stealth 引擎需要（提供 `python -m invisible_core doctor`）
+invisible-playwright==0.10.0
+
+# 可选：把简历 PDF 解析成 profile.yaml 时可能用到
+# pypdf==6.16.2
